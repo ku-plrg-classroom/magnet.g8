@@ -10,7 +10,7 @@ trait Template {
   def eval(str: String, debug: Boolean = false): String =
     def aux(st: State): Value =
       if (debug) println("\n" + "-" * 40 + "\n" + st.str)
-      reduce(st) match
+      step(st) match
         case State(Nil, List(v), _, _) =>
           if (debug) println("\n" + "-" * 40 + "\n" + "Result: " + v.str)
           v
@@ -18,7 +18,7 @@ trait Template {
     val initSt = State(IEval(Map(), Expr(str)) :: Nil, Nil, Map(), Map())
     aux(initSt).str
 
-  def reduce(st: State): State
+  def step(st: State): State
 
   // ---------------------------------------------------------------------------
   // Problem #2

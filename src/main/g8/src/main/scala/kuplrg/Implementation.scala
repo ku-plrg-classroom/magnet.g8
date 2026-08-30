@@ -10,7 +10,7 @@ object Implementation extends Template {
   // ---------------------------------------------------------------------------
   // Problem #1
   // ---------------------------------------------------------------------------
-  def reduce(st: State): State =
+  def step(st: State): State =
     val State(k, s, h, mem) = st
     ???
 
